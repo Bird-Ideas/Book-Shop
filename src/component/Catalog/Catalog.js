@@ -1,5 +1,6 @@
 import React from "react";
 import s from "./Catalog.module.css";
+import Catalog_options from "./Catalog_options/Catalog_options";
 import Item from "./Item/Item";
 
 const Catalog = () => {
@@ -11,12 +12,14 @@ const Catalog = () => {
     <div className={s.Catalog}>
       <div className={s.left}>
         <div className={s.left_inside}>
-          <input></input>
+          <Catalog_options title="Genre" />
+          <Catalog_options title="Autor" />
+          <Catalog_options title="Publishing house" />
         </div>
       </div>
       <div className={s.right}>
         <div className={s.right_inside}>
-          <div className={s.right_settings}>settings bar</div>
+          <div className={s.right_settings}>sort bar</div>
           <div className={s.catalog_items}>{items_arr}</div>
         </div>
       </div>

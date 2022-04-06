@@ -8,18 +8,18 @@ import { Route, Routes } from "react-router-dom";
 import Profile from "./component/Profile/Profile";
 import Basket from "./component/Basket/Basket";
 import React, { useEffect } from "react";
+import Item_Single_Page from "./component/Catalog/Item_Single_Page/Item_Single_Page";
 
 function App() {
   return (
     <div className="App">
       <Header />
 
-
       <Routes>
         <Route path="*" element={<StartPage />} />
         <Route path="/startpage" element={<StartPage />} />
         <Route path="/catalog" element={<Catalog />} />
-        <Route path="/descriptions" element={<Descriptions />} />
+        <Route path="/descriptions" element={<Item_Single_Page />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/basket" element={<Basket />} />
       </Routes>
