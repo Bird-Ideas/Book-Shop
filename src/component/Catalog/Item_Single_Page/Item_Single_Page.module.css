@@ -1,0 +1,151 @@
+.page {
+  color: black;
+  width: 1300px;
+  display: flex;
+  flex-wrap: wrap;
+  height: fit-content;
+  margin: 0 auto;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  margin-bottom: 10px;
+}
+
+.way {
+  border-bottom: 1px solid #333;
+  display: block;
+  margin: 5px 25px 0 25px;
+  padding: 10px;
+  width: 100%;
+  font-size: 20px;
+
+  height: fit-content;
+}
+
+.content {
+  display: flex;
+  width: 100%;
+  padding: 25px;
+  justify-content: space-between;
+}
+
+.img {
+  width: 300px;
+  height: 450px;
+}
+
+.img img {
+  width: 100%;
+  height: 100%;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  width: 880px;
+  border: 2px solid #333;
+  padding: 25px;
+  height: 400px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.title {
+  display: block;
+
+  font-weight: 600;
+  font-size: 38px;
+  color: #2b0f42;
+}
+.autor {
+  font-style: oblique;
+  margin-top: 10px;
+  display: block;
+
+  font-size: 17px;
+  line-height: 1.47059;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  font-family: SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica,
+    Arial, sans-serif;
+  margin: 3px 0 2px;
+}
+
+.stats {
+  padding: 10px 0;
+  border-bottom: 2px solid #2b0f42;
+  border-top: 2px solid #2b0f42;
+  margin-top: 10px;
+  font-size: 17px;
+  line-height: 1.47059;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  font-family: SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica,
+    Arial, sans-serif;
+  font-weight: 600;
+}
+
+.stats_item {
+  width: 350px;
+  display: flex;
+}
+
+.stats_item div {
+  display: inline-block;
+}
+
+.stats_item_line {
+  display: flex;
+  height: 16px;
+  flex: 1;
+  vertical-align: baseline;
+  border-bottom: 2px dotted #ccc;
+  margin: 0 5px 0 5px;
+}
+
+.buy_menu {
+  margin-top: auto;
+  height: fit-content;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.price_div {
+  display: inline-block;
+  margin-right: 40px;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1.25;
+  letter-spacing: 0.1px;
+}
+.btn_div {
+  display: inline-block;
+  width: fit-content;
+}
+
+.btn_div button {
+  width: 120px;
+  height: 40px;
+}
+
+.price_span_currency {
+  color: rgb(248, 83, 83);
+  font-size: 24px;
+  margin-right: 5px;
+}
+
+.descriptions {
+  border: 2px solid black;
+  width: 100%;
+  height: fit-content;
+  padding: 25px;
+  margin: 0px 25px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  margin-bottom: 25px;
+}
+.descriptions h3 {
+  font-size: 28px;
+  letter-spacing: -0.4px;
+  line-height: 1.2;
+  margin: 0;
+}

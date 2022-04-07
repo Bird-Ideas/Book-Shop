@@ -4,7 +4,7 @@ import Catalog_options from "./Catalog_options/Catalog_options";
 import Item from "./Item/Item";
 
 const Catalog = () => {
-  let items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  let items = [1, 2, 3, 4, 5, 6];
 
   const items_arr = items.map((number) => <Item />);
 
