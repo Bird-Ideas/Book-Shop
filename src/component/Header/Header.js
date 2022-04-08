@@ -28,7 +28,7 @@ const Header = () => {
       </div>
       <div className={s.search_bar}>
         <div className={s.search_bar_title}>
-          <span> Premium bookstore </span>
+          <span>Bookstore 4 peoples </span>
         </div>
 
         <div className={s.search_bar_search}>

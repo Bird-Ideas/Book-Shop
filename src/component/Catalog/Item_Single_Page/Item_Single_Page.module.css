@@ -126,6 +126,10 @@
 .btn_div button {
   width: 120px;
   height: 40px;
+  background-color: #fff4a3;
+  border: 1px solid black;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 .price_span_currency {
