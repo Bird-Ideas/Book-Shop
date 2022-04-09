@@ -3,27 +3,20 @@ import { NavLink } from "react-router-dom";
 import s from "./Header.module.css";
 import basket_img from "../../media/Font_Awesome_5_solid_shopping-basket.svg";
 
-const Header = () => {
+const Header = (props) => {
+  let basket_switch = () => {
+    props.switch_basket();
+  };
   let login = true;
   return (
     <div className={s.header}>
       <div className={s.nav}>
         <div className={s.nav_bar}>
-          <NavLink activeClassName={s.active} to="/startpage">
-            StartPage
-          </NavLink>
-          <NavLink activeClassName={s.active} to="/catalog">
-            Catalog
-          </NavLink>
-          <NavLink activeClassName={s.active} to="/descriptions">
-            Descriptions
-          </NavLink>
-          <NavLink activeClassName={s.active} to="/something">
-            Something
-          </NavLink>
-          <NavLink activeClassName={s.active} to="/profile">
-            Profile
-          </NavLink>
+          <NavLink to="/startpage">StartPage</NavLink>
+          <NavLink to="/catalog">Catalog</NavLink>
+          <NavLink to="/descriptions">Descriptions</NavLink>
+          <NavLink to="/something">Something</NavLink>
+          <NavLink to="/profile">Profile</NavLink>
         </div>
       </div>
       <div className={s.search_bar}>
@@ -47,7 +40,7 @@ const Header = () => {
               Log in
             </a>
           </div>
-          <div className={s.basket_image}>
+          <div className={s.basket_image} onClick={basket_switch}>
             <img src={basket_img}></img>
           </div>
         </div>

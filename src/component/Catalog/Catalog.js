@@ -3,10 +3,16 @@ import s from "./Catalog.module.css";
 import Catalog_options from "./Catalog_options/Catalog_options";
 import Item from "./Item/Item";
 
-const Catalog = () => {
-  let items = [1, 2, 3, 4, 5, 6];
+const Catalog = (props) => {
+  let items = props.catalog;
 
-  const items_arr = items.map((number) => <Item />);
+  const items_arr = items.map((number) => (
+    <Item
+      item={number}
+      switch={props.switch_basket}
+      add_to_basket={props.add_to_basket}
+    />
+  ));
 
   return (
     <div className={s.Catalog}>

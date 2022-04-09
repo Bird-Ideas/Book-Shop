@@ -62,11 +62,12 @@
 
 .basket_items {
   height: 410px;
-
+  transition: 0.5s;
   background-color: aliceblue;
   overflow-y: auto;
   border-bottom: 1px solid #333;
   border-top: 1px solid #333;
+  overflow-y: scroll;
 }
 
 .buy_menu {
