@@ -73,21 +73,17 @@
 .buy_menu {
   height: 70px;
   display: flex;
-  justify-content: right;
+  justify-content: space-between;
   align-items: center;
-}
-
-.buy_menu span {
+  margin: 0 40px;
 }
 
 .buy_menu button {
   width: 120px;
   height: 40px;
-  margin-right: 30px;
 }
 
 .buy_menu_count {
-  margin-right: 30px;
   font-size: 28px;
 }
 

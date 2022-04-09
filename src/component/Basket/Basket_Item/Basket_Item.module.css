@@ -14,7 +14,7 @@
   height: 100px;
   display: inline-block;
   width: 80px;
-  
+
   margin-left: 15px;
 }
 
@@ -67,4 +67,21 @@
   color: rgb(244, 96, 96);
   font-size: 22px;
   margin-right: 5px;
+}
+
+.remove_btn {
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 5px;
+  margin-right: 10px;
+}
+
+.remove_btn span {
+  cursor: pointer;
+  border-bottom: 1px solid black;
+}
+
+.remove_btn span:hover {
+  color: rgb(252, 78, 78);
 }

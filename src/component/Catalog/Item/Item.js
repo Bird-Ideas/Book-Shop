@@ -20,8 +20,8 @@ const Item = (props) => {
         <div className={s.autor}>{props.item.autor}</div>
         <div className={s.btn_div}>
           <span className={s.price}>
+            <span className={s.price_currency}>{props.item.currency}</span>
             {props.item.price}
-            {props.item.currency}
           </span>
           <button className={s.btn} onClick={basket_switch}>
             Buy

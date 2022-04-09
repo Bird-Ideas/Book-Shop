@@ -6,8 +6,16 @@ const Basket = (props) => {
   let basket_switch = () => {
     props.switch_basket();
   };
+  let remove_all = () => {
+    props.remove_all();
+  };
   const items_arr = props.basket_data.map((data) => (
-    <Basket_Item data={data} />
+    <Basket_Item
+      data={data}
+      increment={props.increment}
+      decrement={props.decrement}
+      remove={props.remove_one}
+    />
   ));
 
   return props.open ? (
@@ -17,8 +25,10 @@ const Basket = (props) => {
         <div className={s.basket_title}>Basket</div>
         <div className={s.basket_items}>{items_arr}</div>
         <div className={s.buy_menu}>
+          <button onClick={remove_all}>Remove all</button>
           <span className={s.buy_menu_count}>
-            Total:<span className={s.buy_menu_currency}>$</span>390
+            Total:<span className={s.buy_menu_currency}>UAH</span>
+            {props.basket_total_price}
           </span>
           <button>Buy all</button>
         </div>

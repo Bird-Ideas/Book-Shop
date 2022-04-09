@@ -1,5 +1,7 @@
 const initialState = {
   basket_open: false,
+  basket_item: [],
+  basket_total_price: 0,
   catalog: [
     {
       id: 0,
@@ -7,8 +9,8 @@ const initialState = {
       title: "Енеїда",
       autor: "Котляревський Іван Петрович",
       img: "https://i.lb.ua/066/35/5996efb55456a.jpeg",
-      price: "300",
-      currency: "$",
+      price: 300,
+      currency: "UAH",
       raiting: "4/5",
       publish_date: "1842",
       publisher: "Alcove Press",
@@ -25,7 +27,7 @@ const initialState = {
       title: "Кобзар",
       autor: " Шевченко Т.Г.",
       img: "https://detmir.com.ua/wa-data/public/shop/products/95/62/476295/images/136072/x136072.745.jpg.pagespeed.ic.IamePnmvYZ.webp",
-      price: "1092",
+      price: 1092,
       currency: "UAH",
       raiting: "5/5",
       publish_date: "1878",
@@ -43,7 +45,7 @@ const initialState = {
       title: " Хіба ревуть воли, як ясла повні?",
       autor: "Панас Мирний",
       img: "https://images.zakupka.com/i3/firms/27/5321/5321345/kniga-hiba-revut-voli-yak-yasla-povni-avtor-panas-mirniy-svitovid-tv_e6596fbc06d1cfb_1024x3000.webp",
-      price: "130",
+      price: 130,
       currency: "UAH",
       raiting: "4.2/5",
       publish_date: "2020",
@@ -61,7 +63,7 @@ const initialState = {
       title: "Зачарована Десна",
       autor: "Олександр Довженко",
       img: "https://img.yakaboo.ua/media/catalog/product/cache/1/image/398x565/31b681157c4c1a5551b0db4896e7972f/c/o/cover_176_651.jpg",
-      price: "80",
+      price: 80,
       currency: "UAH",
       raiting: "3/5",
       publish_date: "2019",
@@ -79,7 +81,7 @@ const initialState = {
       title: "Тигролови",
       autor: "Багряний І.",
       img: "https://thebooks.com.ua/image/catalog/2021/05/b/5/28073_15971395903732376.png",
-      price: "73",
+      price: 73,
       currency: "UAH",
       raiting: "4/5",
       publish_date: "2015",
@@ -97,7 +99,7 @@ const initialState = {
       title: "Кайдашева сім’я",
       autor: "Іван Нечуй-Левицький",
       img: "https://img.yakaboo.ua/media/catalog/product/cache/1/image/398x565/31b681157c4c1a5551b0db4896e7972f/c/o/cover_185_1.jpg",
-      price: "50",
+      price: 50,
       currency: "UAH",
       raiting: "5/5",
       publish_date: "2020",
@@ -110,7 +112,6 @@ const initialState = {
         "Іван Нечуй-Левицький (1838—1918) — видатний український письменник-реаліст, який за півстоліття написав понад п’ятдесят романів, повістей, оповідань, казок, п’єс з народного життя. Майстер слова мав на меті якомога глибше розробити «непочаті рудники» українського життя і створити правдиві образи людей з усіх верств суспільства. Колоритні постаті героїв, соковитий гумор та сміливе поєднання серйозного і навіть трагічного з комічним зробили твори Нечуя-Левицького справжніми перлинами української прози. За словами Івана Франка, повість «Кайдашева сім’я» належить до «найкращих оздоб українського письменства». Митець показує життя однієї селянської родини — Омелька Кайдаша, дорослі сини якого створюють власні сім’ї й влаштовують свій побут після реформи 1861 року.",
     },
   ],
-  basket_item: [],
 };
 
 export default initialState;
