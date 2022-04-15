@@ -9,27 +9,30 @@ CREATE TABLE `user` (
 );
 
 CREATE TABLE `author` (
-   `id` BIGINT NOT NULL AUTO_INCREMENT, 
-   `name` VARCHAR(50) NOT NULL,  
+  `id` BIGINT NOT NULL AUTO_INCREMENT, 
+  `name` VARCHAR(50) NOT NULL, 
+  PRIMARY KEY (`id`)
 ); 
 
 CREATE TABLE `publisher` (
-    `id` BIGINT NOT NULL AUTO_INCREMENT, 
-   `name` VARCHAR(50) NOT NULL,  
+  `id` BIGINT NOT NULL AUTO_INCREMENT, 
+  `name` VARCHAR(50) NOT NULL,
+  PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `book` (
   `id` BIGINT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(50) NOT NULL,
   `author` BIGINT NULL,
-  `publisher` 
+  `publisher` BIGINT NULL, 
   `summary` TINYTEXT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `uq_slug` (`slug` ASC),
   INDEX `idx_book_author` (`author` ASC),
   INDEX `idx_book_publ` (`publisher` ASC), 
-  CONSTRAINT `fk_product_user`
-    FOREIGN KEY (`userId`)
-    REFERENCES `shop`.`user` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+  CONSTRAINT `fk_book_author`
+    FOREIGN KEY (`author`)
+    REFERENCES `author` (`id`),
+  CONSTRAINT `fk_book_publisher` 
+    FOREIGN KEY (`publisher`)
+    REFERENCES `publisher` (`id`)
+);

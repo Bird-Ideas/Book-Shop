@@ -1,20 +1,27 @@
-const express = require('express');
-const cors = require('cors'); 
-const db = require('./db'); 
-const app = express(); 
-const port = 3000; 
+const express = require("express");
+const app = express();
+const port = 3001;
 
-app.use(cors()); 
-app.use(express.json()); 
+const { sequelize, Author } = require("./models");
 
-// app.post('/', async(req, res) {
+app.use(express.json());
 
-// }); 
-
-app.get('/', function(req, res) {
-    res.send('Hello World!')
+app.post("/authors", async (req, res) => {
+  console.log(req.body); 
+  const name = req.body.name;
+  console.log(name); 
+  try {
+    const author = await Author.create({ name });
+    return res.json(author);
+  } catch (err) {
+    console.log(err);
+  }
 });
-  
-  app.listen(port, function() {
-    console.log(`Example app listening on port ${port}!`)
+
+// app.get('/', function(req, res) {
+//     res.send('Hello World!')
+// });
+app.listen(port, async function () {
+  console.log(`Example app listening on port ${port}!`);
+  await sequelize.sync({force: true});  
 });
