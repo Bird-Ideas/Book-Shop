@@ -1,7 +1,7 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class Author extends Model {
+  class Publisher extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -9,14 +9,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate({ Book }) {
       // define association here
-      this.belongsToMany(Book); 
     }
 
     toJSON() {
       return { ...this.get(), id: undefined };
     }
   }
-  Author.init(
+  Publisher.init(
     {
       id: {
         type: DataTypes.BIGINT,
@@ -34,5 +33,5 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: false,
     }
   );
-  return Author;
+  return Publisher;
 };
