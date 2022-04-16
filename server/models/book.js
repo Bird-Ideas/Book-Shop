@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     toJSON() {
-      return { ...super.toJSON(), id: undefined };
+      return { ...super.toJSON() };
     }
   }
   Book.init(
@@ -28,14 +28,6 @@ module.exports = (sequelize, DataTypes) => {
       name: {
         type: DataTypes.STRING,
       },
-      // author: {
-      //   type: DataTypes.BIGINT,
-      //   allowNull: false
-      // },
-      // publisher: {
-      //   type: DataTypes.BIGINT,
-      //   allowNull: false
-      // },
       summary: {
         type: DataTypes.TEXT("tiny"),
         allowNull: true,
