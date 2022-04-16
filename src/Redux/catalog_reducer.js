@@ -5,6 +5,8 @@ const REMOVE_FROM_BASKET = "RemoveFromBasket";
 const REMOVE_ALL_FROM_BASKET = "RemoveAllFromBasket";
 const ITEM_MINUS = "ItemMinus";
 const ITEM_PLUS = "ItemPlus";
+const LOGIN = "Login";
+const LOGIN_SWITCH = "LoginSwitch";
 
 const catalog_reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -122,6 +124,22 @@ const catalog_reducer = (state = initialState, action) => {
         basket_total_price: total_price,
       };
     }
+    case LOGIN: {
+      return state;
+    }
+    case LOGIN_SWITCH: {
+      if (state.login_open) {
+        return {
+          ...state,
+          login_open: false,
+        };
+      } else {
+        return {
+          ...state,
+          login_open: true,
+        };
+      }
+    }
     default: {
       return state;
     }
@@ -151,4 +169,6 @@ export const ItemPlusActionCreator = (data) => ({
   type: ITEM_PLUS,
   data,
 });
+export const LoginSwitch = () => ({ type: LOGIN_SWITCH });
+
 export default catalog_reducer;

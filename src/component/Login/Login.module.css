@@ -1,0 +1,95 @@
+.login_div {
+  color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 100;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login {
+  position: relative;
+  background-color: white;
+  border: 2px solid #333;
+  border-radius: 10px;
+  width: 370px;
+  height: 270px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login_inner {
+  width: 350px;
+  height: fit-content;
+}
+
+.title {
+  width: 260px;
+  margin: 0 auto;
+  padding-left: 20px;
+
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+
+.incorrect {
+  color: red;
+  width: 260px;
+  padding-left: 20px;
+  margin: 0 auto;
+}
+
+.incorrect_invisible {
+  display: none;
+}
+
+.input {
+  width: fit-content;
+  margin: 0 auto;
+}
+.button_div {
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.button_div button {
+  width: 100px;
+  height: 30px;
+}
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 32px;
+  height: 32px;
+  opacity: 0.3;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.close:hover {
+  opacity: 1;
+}
+.close:before,
+.close:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 33px;
+  width: 3px;
+  background-color: #333;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
+}

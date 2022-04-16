@@ -7,6 +7,9 @@ const Header = (props) => {
   let basket_switch = () => {
     props.switch_basket();
   };
+  let login_switch = () => {
+    props.switch_login();
+  };
   let login = true;
   return (
     <div className={s.header}>
@@ -35,7 +38,7 @@ const Header = (props) => {
         </div>
 
         <div className={s.search_bar_basket_and_login}>
-          <div className={s.log_in}>
+          <div className={s.log_in} onClick={login_switch}>
             <a className={s.basket_inside_log_in} href="#">
               Log in
             </a>

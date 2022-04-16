@@ -1,8 +1,5 @@
 import "./App.css";
-import Catalog from "./component/Catalog/Catalog";
-import Descriptions from "./component/Descriptions/Descriptions";
-import Footer from "./component/Footer/Footer";
-import Header from "./component/Header/Header";
+
 import StartPage from "./component/StartPage/StartPage";
 import { Route, Routes } from "react-router-dom";
 import Profile from "./component/Profile/Profile";
@@ -11,8 +8,9 @@ import React from "react";
 import Item_Single_Page from "./component/Catalog/Item_Single_Page/Item_Single_Page";
 import HeaderContainer from "./component/Header/HeaderContainer";
 import CatalogContainer from "./component/Catalog/CatalogContainer";
-import Admin_panel from "./component/Admin_panel/Admin_panel";
+
 import Admin_panel_Container from "./component/Admin_panel/Admin_panel_Container";
+import LoginContainer from "./component/Login/LoginContainer";
 
 function App() {
   let data = {
@@ -36,6 +34,7 @@ function App() {
     <div className="App">
       <HeaderContainer />
       <BasketContainer />
+      <LoginContainer />
 
       <Routes>
         <Route path="*" element={<StartPage />} />

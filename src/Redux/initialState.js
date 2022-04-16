@@ -1,11 +1,12 @@
 const initialState = {
   basket_open: false,
+  login_open: false,
   basket_item: [],
   basket_total_price: 0,
   catalog: [
     {
       id: 0,
-
+        
       title: "Енеїда",
       autor: "Котляревський Іван Петрович",
       img: "https://i.lb.ua/066/35/5996efb55456a.jpeg",
