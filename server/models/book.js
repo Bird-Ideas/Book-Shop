@@ -10,7 +10,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate({ Author, Publisher }) {
       // define association here
       // this.hasMany(Author);
-      // this.hasOne(Publisher); 
+      this.belongsTo(Author); 
+      this.belongsTo(Publisher); 
     }
 
     toJSON() {
