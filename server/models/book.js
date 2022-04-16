@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate({ Author, Publisher }) {
       // define association here
       // this.hasMany(Author);
-      // this.hasOne(Publisher); 
+      // this.hasOne(Publisher);
     }
 
     toJSON() {
@@ -30,20 +30,20 @@ module.exports = (sequelize, DataTypes) => {
       // author: {
       //   type: DataTypes.BIGINT,
       //   allowNull: false
-      // }, 
+      // },
       // publisher: {
       //   type: DataTypes.BIGINT,
       //   allowNull: false
       // },
       summary: {
-        type: DataTypes.TEXT('tiny'), 
-        allowNull: true
-      }, 
+        type: DataTypes.TEXT("tiny"),
+        allowNull: true,
+      },
     },
     {
       sequelize,
       modelName: "Book",
-      timestamps: false
+      timestamps: false,
     }
   );
   return Book;

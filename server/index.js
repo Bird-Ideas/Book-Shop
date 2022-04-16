@@ -1,15 +1,15 @@
 const express = require("express");
-const cors = require("cors"); 
+//const cors = require("cors");
 const app = express();
-const port = 3001;
+const port = 3002;
 
 const { sequelize, Author } = require("./models");
 
 app.use(express.json());
-app.use(cors); 
+//app.use(cors);
 
-const booksRouter = require("./routes/Books"); 
-app.use("/books", booksRouter); 
+const booksRouter = require("./routes/Books");
+app.use("/books", booksRouter);
 
 app.post("/authors", async (req, res) => {
   const name = req.body.name;

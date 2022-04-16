@@ -11,6 +11,8 @@ import React from "react";
 import Item_Single_Page from "./component/Catalog/Item_Single_Page/Item_Single_Page";
 import HeaderContainer from "./component/Header/HeaderContainer";
 import CatalogContainer from "./component/Catalog/CatalogContainer";
+import Admin_panel from "./component/Admin_panel/Admin_panel";
+import Admin_panel_Container from "./component/Admin_panel/Admin_panel_Container";
 
 function App() {
   let data = {
@@ -43,6 +45,7 @@ function App() {
           path="/descriptions"
           element={<Item_Single_Page data={data} />}
         />
+        <Route path="/admin" element={<Admin_panel_Container />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
     </div>

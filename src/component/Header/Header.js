@@ -14,8 +14,8 @@ const Header = (props) => {
         <div className={s.nav_bar}>
           <NavLink to="/startpage">StartPage</NavLink>
           <NavLink to="/catalog">Catalog</NavLink>
-          <NavLink to="/descriptions">Descriptions</NavLink>
-          <NavLink to="/something">Something</NavLink>
+          <NavLink to="/descriptions">Single item</NavLink>
+          <NavLink to="/admin">Admin</NavLink>
           <NavLink to="/profile">Profile</NavLink>
         </div>
       </div>
