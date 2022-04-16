@@ -1,13 +1,13 @@
 const express = require("express");
 const router = express.Router();
 
-const { Book, Author } = require("../models/");
+const { Publisher } = require("../models/");
 
 router.post("/", async (req, res) => {
-  const body = req.body;
+  const name = req.body.name;
   try {
-    const book = await Book.create(body);
-    return res.json(book);
+    const publisher = await Publisher.create({ name });
+    return res.json(publisher);
   } catch (err) {
     console.log(err);
     return res.status(500).json(err);
@@ -16,8 +16,8 @@ router.post("/", async (req, res) => {
 
 router.get("/", async (req, res) => {
   try {
-    const author = await Book.findAll();
-    return res.json(author);
+    const publisher = await Publisher.findAll();
+    return res.json(publisher);
   } catch (err) {
     console.log(err);
     return res.status(500).json(err);
@@ -27,14 +27,10 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   const id = req.params.id;
   try {
-    const book = await Book.findOne({
+    const publisher = await Publisher.findOne({
       where: { id },
     });
-    console.log(book.AuthorId);
-    const author = await Author.findOne({
-      where: { id: book.AuthorId },
-    });
-    return res.json(author);
+    return res.json(publisher);
   } catch (err) {
     console.log(err);
     return res.status(500).json(err);
