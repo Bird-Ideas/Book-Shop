@@ -9,12 +9,12 @@ app.use(express.json());
 app.use(cors({origin: "*"})); 
 
 const books = require("./routes/Books"); 
-const authors = require("./routes/Authors");
-const publishers = require("./routes/Publishers");  
+// const authors = require("./routes/Authors");
+// const publishers = require("./routes/Publishers");  
 const user = require("./routes/User"); 
 app.use("/books", books); 
-app.use("/authors", authors); 
-app.use("/publishers", publishers); 
+// app.use("/authors", authors); 
+// app.use("/publishers", publishers); 
 app.use("/", user); 
 
 
