@@ -1,29 +1,28 @@
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import s from "./Item_Single_Page.module.css";
 import { useParams } from "react-router-dom";
-import axios from 'axios'; 
+import axios from "axios";
 import img from "../../../media/books_img/dsc_00786.jpg";
 
 const Item_Single_Page = (props) => {
-  let { id } = useParams(); 
-  const [book, setBook] = useState(""); 
+  let { id } = useParams();
+  const [book, setBook] = useState("");
 
   useEffect(() => {
-    async function getBook(){
+    async function getBook() {
       const result = await axios.get(`http://localhost:3001/books/${id}`);
+
       setBook(result.data);
     }
 
-    getBook(); 
-  }, []); 
+    getBook();
+  }, []);
 
   return (
     <div className={s.page}>
       <div className={s.way}>{"home>books>..."}</div>
       <div className={s.content}>
-        <div className={s.img}>
-          {/* <img src={props.data.img}></img> */}
-        </div>
+        <div className={s.img}>{/* <img src={props.data.img}></img> */}</div>
         <div className={s.info}>
           <div className={s.title}>{book.title}</div>
           <div className={s.autor}>{book.author}</div>
@@ -60,9 +59,7 @@ const Item_Single_Page = (props) => {
           <div className={s.buy_menu}>
             <div className={s.price_div}>
               <span className={s.price_span}>
-                <span className={s.price_span_currency}>
-                  UAH
-                </span>
+                <span className={s.price_span_currency}>UAH</span>
                 {book.price}
               </span>
             </div>

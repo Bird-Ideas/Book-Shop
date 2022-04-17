@@ -13,7 +13,6 @@ import Admin_panel_Container from "./component/Admin_panel/Admin_panel_Container
 import LoginContainer from "./component/Login/LoginContainer";
 
 function App() {
-
   return (
     <div className="App">
       <HeaderContainer />
@@ -24,13 +23,9 @@ function App() {
         <Route path="*" element={<StartPage />} />
         <Route path="/startpage" element={<StartPage />} />
         <Route path="/catalog" element={<CatalogContainer />} />
-        {/* <Route
-          path="/descriptions"
-          element={<Item_Single_Page data={data} />}
-        /> */}
         <Route path="/admin" element={<Admin_panel_Container />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/books/:id" element={<Item_Single_Page/>}/>
+        <Route path="/books/:id" element={<Item_Single_Page />} />
       </Routes>
     </div>
   );

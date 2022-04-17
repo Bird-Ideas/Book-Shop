@@ -1,24 +1,39 @@
-import React from "react";
 import s from "./Basket_Item.module.css";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const Basket_Item = (props) => {
+  const [book, setBook] = useState("");
+
+  useEffect(() => {
+    async function getBook() {
+      const result = await axios.get(
+        `http://localhost:3001/books/${props.basket_item.id}`
+      );
+
+      setBook(result.data);
+    }
+
+    getBook();
+  }, []);
+
   let increment = () => {
-    props.increment(props.data.id);
+    props.increment(book.id);
   };
   let decrement = () => {
-    props.decrement(props.data.id);
+    props.decrement(book.id);
   };
   let remove = () => {
-    props.remove(props.data.id);
+    props.remove(book.id);
   };
   return (
     <div className={s.item}>
       <div className={s.img}>
-        <img src={props.data.img}></img>
+        <img src={""}></img>
       </div>
       <div className={s.content}>
-        <span className={s.content_title} title={props.data.title}>
-          {props.data.title}
+        <span className={s.content_title} title={book.title}>
+          {book.title}
         </span>
         <div className={s.content_control}>
           <div className={s.remove_btn} onClick={remove}>
@@ -26,20 +41,18 @@ const Basket_Item = (props) => {
           </div>
           <button
             className={s.control_btn}
-            disabled={props.data.count <= 1 ? true : false}
+            disabled={props.basket_item.count <= 1 ? true : false}
             onClick={decrement}
           >
             -
           </button>
-          <span className={s.control_count}>{props.data.count}</span>
+          <span className={s.control_count}>{props.basket_item.count}</span>
           <button className={s.control_btn} onClick={increment}>
             +
           </button>
           <span className={s.control_price}>
-            <span className={s.control_price_currency}>
-              {props.data.currency}
-            </span>
-            {props.data.price}
+            <span className={s.control_price_currency}>{"UAH"}</span>
+            {book.price}
           </span>
         </div>
       </div>

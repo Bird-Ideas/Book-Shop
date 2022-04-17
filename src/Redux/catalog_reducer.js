@@ -7,9 +7,13 @@ const ITEM_MINUS = "ItemMinus";
 const ITEM_PLUS = "ItemPlus";
 const LOGIN = "Login";
 const LOGIN_SWITCH = "LoginSwitch";
+const SET_BOOKS = "SetBooks";
 
 const catalog_reducer = (state = initialState, action) => {
   switch (action.type) {
+    case SET_BOOKS: {
+      return { ...state, catalog: action.data };
+    }
     case BASKET_SWITCH: {
       if (state.basket_open) {
         return {
@@ -24,20 +28,17 @@ const catalog_reducer = (state = initialState, action) => {
       }
     }
     case ADD_TO_BASKET: {
+      debugger;
       let temp = {
         id: 0,
         count: 0,
         price: 0,
-        currency: "",
-        title: "",
-        autor: "",
-        img: "",
       };
       let create = true;
       let total_price = 0;
 
       state.basket_item.find((el) => {
-        if (action.data == el.id) {
+        if (action.data.id == el.id) {
           temp = el;
           temp.count++;
           create = false;
@@ -47,22 +48,15 @@ const catalog_reducer = (state = initialState, action) => {
       });
 
       if (create) {
-        state.catalog.find((el) => {
-          if (action.data == el.id) {
-            temp.id = el.id;
-            temp.count++;
-            temp.price = el.price;
-            temp.currency = el.currency;
-            temp.title = el.title;
-            temp.autor = el.autor;
-            temp.img = el.img;
-
-            total_price = total_price + el.price;
-          }
+        state.basket_item.push({
+          id: action.data.id,
+          count: 1,
+          price: action.data.price,
         });
+        total_price = total_price + action.data.price;
         return {
           ...state,
-          basket_item: [...state.basket_item, temp],
+          basket_item: [...state.basket_item],
           basket_total_price: total_price,
         };
       }
@@ -140,11 +134,13 @@ const catalog_reducer = (state = initialState, action) => {
         };
       }
     }
+
     default: {
       return state;
     }
   }
 };
+export const SetBooks = (data) => ({ type: SET_BOOKS, data });
 
 export const BasketSwitchActionCreator = () => ({
   type: BASKET_SWITCH,
@@ -169,6 +165,7 @@ export const ItemPlusActionCreator = (data) => ({
   type: ITEM_PLUS,
   data,
 });
+
 export const LoginSwitch = () => ({ type: LOGIN_SWITCH });
 
 export default catalog_reducer;

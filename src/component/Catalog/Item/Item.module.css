@@ -17,6 +17,7 @@
   width: fit-content;
   height: fit-content;
   margin: 0 auto;
+  cursor: pointer;
 }
 
 .img {
@@ -37,6 +38,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  cursor: pointer;
   margin-bottom: 5px;
 }
 

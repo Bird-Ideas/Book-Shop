@@ -12,7 +12,7 @@ import Basket from "./Basket";
 const mapStateToProps = (state) => {
   return {
     open: state.data.basket_open,
-    basket_data: state.data.basket_item,
+    basket_item: state.data.basket_item,
     basket_total_price: state.data.basket_total_price,
   };
 };

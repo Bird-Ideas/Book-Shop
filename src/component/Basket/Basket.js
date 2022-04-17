@@ -9,9 +9,9 @@ const Basket = (props) => {
   let remove_all = () => {
     props.remove_all();
   };
-  const items_arr = props.basket_data.map((data) => (
+  const items_arr = props.basket_item.map((data) => (
     <Basket_Item
-      data={data}
+      basket_item={data}
       increment={props.increment}
       decrement={props.decrement}
       remove={props.remove_one}

@@ -11,13 +11,13 @@ const Login = (props) => {
 
   async function onLogin() {
     const data = { login: username, pwd: password };
-    const response = await axios.post("http://localhost:3001/login", data); 
-    if(!response.data.error) {
+    const response = await axios.post("http://localhost:3001/login", data);
+    if (!response.data.error) {
       sessionStorage.setItem("accessToken", response.data);
     } else {
-      alert(response.data.error); 
+      alert(response.data.error);
     }
-    login_switch(); 
+    login_switch();
   }
 
   let cor1 = false;
