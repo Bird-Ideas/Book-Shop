@@ -9,18 +9,16 @@ const Login = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const login = () => {
-    debugger;
-    const data = { username: username, password: password };
-    axios.post("http://localhost:3001/login", data).then((response) => {
-      if (response.data.error) {
-        alert(response.data.error);
-      } else {
-        sessionStorage.setItem("accessToken", response.data);
-        props.switch_login();
-      }
-    });
-  };
+  async function onLogin() {
+    const data = { login: username, pwd: password };
+    const response = await axios.post("http://localhost:3001/login", data); 
+    if(!response.data.error) {
+      sessionStorage.setItem("accessToken", response.data);
+    } else {
+      alert(response.data.error); 
+    }
+    login_switch(); 
+  }
 
   let cor1 = false;
   let cor2 = false;
@@ -54,7 +52,7 @@ const Login = (props) => {
             {cor2 ? "incorrect password" : "ㅤ"}
           </div>
           <div className={s.button_div}>
-            <button onClick={login}>Login</button>
+            <button onClick={onLogin}>Login</button>
           </div>
         </div>
       </div>

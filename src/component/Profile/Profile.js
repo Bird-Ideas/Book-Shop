@@ -1,12 +1,32 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import s from "./Profile.module.css";
 
 const Profile = () => {
+  const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    async function getUser() {
+      const request = await axios.get(`http://localhost:3001/profile`, {
+        headers: {
+          accessToken: sessionStorage.getItem("accessToken"),
+        },
+      });
+      console.log(request.data);
+      setUser(request.data);
+    }
+
+    getUser();
+  }, []);
+
   return (
     <div className={s.profile}>
-      <span>No more casual rasism</span>
+      <span>User: {user.login}</span>
       <br></br>
-      <span>Time to go competitive</span>
+      <span>Email: {user.email}</span>
+      <br></br>
+      <span>Password hash: {user.pwd}</span>
+      <br></br>
     </div>
   );
 };

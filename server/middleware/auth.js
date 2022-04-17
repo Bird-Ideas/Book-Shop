@@ -5,8 +5,9 @@ const validateToken = async (req, res, next) => {
 
   if (!token) return res.json({ error: "Not logged in." });
   try {
-      const valid = verify(token, "bruh");
-      if(valid){
+      const validToken = verify(token, "bruh");
+      req.user = validToken.login; 
+      if(validToken){
           return next(); 
       }
   } catch (err) {
