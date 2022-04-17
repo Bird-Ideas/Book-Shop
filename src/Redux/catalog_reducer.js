@@ -28,7 +28,6 @@ const catalog_reducer = (state = initialState, action) => {
       }
     }
     case ADD_TO_BASKET: {
-      debugger;
       let temp = {
         id: 0,
         count: 0,
@@ -68,16 +67,15 @@ const catalog_reducer = (state = initialState, action) => {
     }
     case REMOVE_FROM_BASKET: {
       let total_price = 0;
-      debugger;
-      let filtered = state.basket_item.filter(function (value, index, arr) {
-        return value.id != action.data;
-      });
-      filtered.find((el) => {
-        total_price = total_price + el.price * el.count;
-      });
+      console.log(action.data); 
+      console.log(state.basket_item); 
+      let filtered = state.basket_item.filter(item => item.id !== action.data); 
+      filtered.find(item => 
+        total_price = total_price + item.price * item.count
+      );
       return {
         ...state,
-        basket_item: filtered,
+        basket_item: filtered, 
         basket_total_price: total_price,
       };
     }

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-pascal-case */
 import React from "react";
 import s from "./Basket.module.css";
 import Basket_Item from "./Basket_Item/Basket_Item";
@@ -11,6 +12,7 @@ const Basket = (props) => {
   };
   const items_arr = props.basket_item.map((data) => (
     <Basket_Item
+      key={data.id}
       basket_item={data}
       increment={props.increment}
       decrement={props.decrement}

@@ -9,7 +9,6 @@ const Catalog_options = (props) => {
 
   useEffect(() => {
     async function getOptions(){
-      console.log(props.id); 
       const request = await axios.get(`http://localhost:3001/options/${props.id}`); 
       const result = []; 
       for(const option of request.data) {
