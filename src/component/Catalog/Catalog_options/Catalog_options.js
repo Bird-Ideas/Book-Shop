@@ -1,26 +1,36 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { MultiSelect } from "react-multi-select-component";
 import s from "./Catalog_options.module.css";
 
-const options = [
-  { label: "Arts", value: "Arts" },
-  { label: "Calture", value: "Calture" },
-  { label: "Crime", value: "Crime", disabled: false },
-  { label: "Animals", value: "Animals" },
-  { label: "Comedy", value: "Comedy" },
-  { label: "Horror", value: "Horror", disabled: false },
-  { label: "Historical", value: "Historical" },
-  { label: "Classics", value: "Classics" },
-  { label: "Drama", value: "Drama", disabled: false },
-];
-
 const Catalog_options = (props) => {
   const [selected, setSelected] = useState([]);
+  const [options, setOptions] = useState([]); 
+
+  useEffect(() => {
+    async function getOptions(){
+      console.log(props.id); 
+      const request = await axios.get(`http://localhost:3001/options/${props.id}`); 
+      const result = []; 
+      for(const option of request.data) {
+        result.push({label: option.name, value: option.name }); 
+      }
+      setOptions(result); 
+    }
+
+    getOptions(); 
+
+  }, []); 
+
+  async function optionChanged(e) {
+    setSelected(e);
+    props.onChanged(e); 
+  }
 
   return (
     <div className={s.settings_item}>
       <label className={s.title}>{props.title}</label>
-      <MultiSelect options={options} value={selected} onChange={setSelected} />
+      <MultiSelect options={options} value={selected} onChange={optionChanged} />
     </div>
   );
 };

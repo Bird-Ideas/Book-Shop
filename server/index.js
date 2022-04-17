@@ -9,14 +9,11 @@ app.use(express.json());
 app.use(cors({origin: "*"})); 
 
 const books = require("./routes/Books"); 
-// const authors = require("./routes/Authors");
-// const publishers = require("./routes/Publishers");  
 const user = require("./routes/User"); 
-app.use("/books", books); 
-// app.use("/authors", authors); 
-// app.use("/publishers", publishers); 
+const options = require("./routes/Options"); 
 app.use("/", user); 
-
+app.use("/books", books); 
+app.use("/options", options); 
 
 app.listen(port, async function () {
   console.log(`Example app listening on port ${port}!`);
