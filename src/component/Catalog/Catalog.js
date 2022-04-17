@@ -1,18 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import s from "./Catalog.module.css";
 import Catalog_options from "./Catalog_options/Catalog_options";
 import Item from "./Item/Item";
+import axios from "axios";
 
 const Catalog = (props) => {
-  let items = props.catalog;
+  const [books, setBooks] = useState([]);
 
-  const items_arr = items.map((number) => (
-    <Item
-      item={number}
-      switch={props.switch_basket}
-      add_to_basket={props.add_to_basket}
-    />
-  ));
+  useEffect(() => {
+    async function getBooks() {
+      const result = await (
+        await axios.get(`http://localhost:3001/books`)
+      ).data;
+      setBooks(result);
+    }
+
+    getBooks();
+  }, []);
+
+  let items;
+  if (books.length > 0) {
+    items = books.map((book) => (
+      <Item
+        key={book.id}
+        item={book}
+        switch={props.switch_basket}
+        add_to_basket={props.add_to_basket}
+      />
+    ));
+  }
 
   return (
     <div className={s.Catalog}>
@@ -26,7 +42,7 @@ const Catalog = (props) => {
       <div className={s.right}>
         <div className={s.right_inside}>
           <div className={s.right_settings}>sort bar</div>
-          <div className={s.catalog_items}>{items_arr}</div>
+          <div className={s.catalog_items}>{items}</div>
         </div>
       </div>
     </div>

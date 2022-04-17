@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     toJSON() {
-      return { ...super.toJSON() };
+      return { ...super.toJSON(), AuthorId: undefined, PublisherId: undefined };
     }
   }
   Book.init(
@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
         autoIncrement: true,
         primaryKey: true,
       },
-      name: {
+      title: {
         type: DataTypes.STRING,
       },
       summary: {

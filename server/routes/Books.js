@@ -1,10 +1,11 @@
 const express = require("express");
 const router = express.Router();
 
-const { Book, Author } = require("../models/");
+const { Book, Author, Publisher } = require("../models/");
 
 router.post("/", async (req, res) => {
   const body = req.body;
+  console.log(body); 
   try {
     const book = await Book.create(body);
     return res.json(book);
@@ -16,8 +17,11 @@ router.post("/", async (req, res) => {
 
 router.get("/", async (req, res) => {
   try {
-    const author = await Book.findAll();
-    return res.json(author);
+    const book = await Book.findAll({
+      include: [{model: Author, attributes: ['name']}, 
+      {model: Publisher, attributes: ['name']}]
+    });
+    return res.json(book);
   } catch (err) {
     console.log(err);
     return res.status(500).json(err);
@@ -29,12 +33,10 @@ router.get("/:id", async (req, res) => {
   try {
     const book = await Book.findOne({
       where: { id },
+      include: [{model: Author, attributes: ['name']}, 
+      {model: Publisher, attributes: ['name']}]
     });
-    console.log(book.AuthorId);
-    const author = await Author.findOne({
-      where: { id: book.AuthorId },
-    });
-    return res.json(author);
+    return res.json(book);
   } catch (err) {
     console.log(err);
     return res.status(500).json(err);

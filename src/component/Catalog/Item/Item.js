@@ -1,11 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import s from "./Item.module.css";
 
 const Item = (props) => {
+  let navigate = useNavigate();
   let basket_switch = () => {
     props.switch();
     props.add_to_basket(props.item.id);
   };
+  console.log(props);
   return (
     <>
       <div className={s.item}>
@@ -15,9 +18,15 @@ const Item = (props) => {
           </a>
         </div>
         <div className={s.title}>
-          <a href="#">{props.item.title}</a>
+          <div
+            onClick={() => {
+              navigate(`/books/${props.item.id}`);
+            }}
+          >
+            {props.item.title}
+          </div>
         </div>
-        <div className={s.autor}>{props.item.autor}</div>
+        <div className={s.autor}>{props.item.Author.name}</div>
         <div className={s.btn_div}>
           <span className={s.price}>
             <span className={s.price_currency}>{props.item.currency}</span>

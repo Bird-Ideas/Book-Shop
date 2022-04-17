@@ -46,6 +46,7 @@ function App() {
         />
         <Route path="/admin" element={<Admin_panel_Container />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/books/:id" element={<Item_Single_Page/>}/>
       </Routes>
     </div>
   );
